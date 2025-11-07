@@ -32,7 +32,8 @@ public class App
         
         //5 perform crud
 //        Product p = new  Product("Laptop", 50000);
-//        session.persist(p);
+        Product p = new  Product("AC", 75500);
+        session.persist(p);
         
 //        Product p = new  Product("Television", 100000);
 //        session.save(p);  //depricated
