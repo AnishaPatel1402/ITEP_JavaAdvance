@@ -7,6 +7,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 import com.crudapp.HibernateCurdApp.entity.Student;
+import com.crudapp.HibernateCurdApp.utility.HashPasswordUtill;
 import com.crudapp.HibernateCurdApp.utility.HibernateUtil;
 
 public class HibernateDAO {
@@ -21,6 +22,8 @@ public class HibernateDAO {
 	    	String emailId = sc.next();
 	    	System.out.println("Enter password");
 	    	String password = sc.next();
+	    	
+	    	
 	    	
 	    	Student s = new Student(name, emailId, password);
 	    	Transaction transaction = session.beginTransaction();
@@ -102,7 +105,7 @@ public class HibernateDAO {
 				Session session = sf.openSession();){
 				
 				Scanner sc = new Scanner(System.in);
-				System.out.println("Enter the Roll number of student for updation: ");
+				System.out.println("Enter the Roll number of student for deletion: ");
 				int roll = sc.nextInt();
 				
 				
@@ -127,5 +130,35 @@ public class HibernateDAO {
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
+	}
+
+	public static void authenticateStudent() {
+		try(SessionFactory sf = HibernateUtil.getSessionFactory();
+			Session session = sf.openSession();){
+			
+			Scanner sc = new Scanner(System.in);
+			
+			System.out.println("enter your Id: ");
+			int id = sc.nextInt();
+			System.out.println("Enter your password : ");
+			String plainPassword = sc.next();
+			
+			Student s = session.get(Student.class, id);
+			if(s == null) {
+				System.out.println("Student not found!");
+				return;
+			}
+			
+			boolean isValidStudent = HashPasswordUtill.checkPassword(plainPassword, s.getPassword());
+			System.out.println("\n\nuser password = " + plainPassword);
+			System.out.println("Hashed password = " + s.getPassword());
+			
+			if(isValidStudent) System.out.println("You authentication succesfull");
+			else System.out.println("Invalid student");
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
 	}
 }

@@ -7,10 +7,13 @@ public class HibernateUtil {
 	private static SessionFactory sessionFactory = null;
 	public static SessionFactory getSessionFactory() {
 		try {
+			if(sessionFactory == null) {
 			Configuration configuration = new Configuration();
 			configuration.configure();
 			
 			sessionFactory = configuration.buildSessionFactory();
+			
+			}
 			
 			return sessionFactory;
 			

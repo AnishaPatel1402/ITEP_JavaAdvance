@@ -15,7 +15,7 @@ public class App
         		Scanner sc = new Scanner(System.in);
         		System.out.println( "\n\nWelcome To Student CRUD App" );
         		System.out.println("+++++++++ Menu +++++++++");
-        		System.out.println("Press 1 : Register Student \nPress 2 : Get Student By Roll No. \nPress 3 : Update Student details \nPress 4 : Delete Student \nPress 0 : Exit");
+        		System.out.println("Press 1 : Register Student \nPress 2 : Get Student By Roll No. \nPress 3 : Update Student details \nPress 4 : Delete Student  \nPress 5 : Authenticate Student \nPress 0 : Exit");
         		System.out.print("Enter Your Choice: ");
         		int choice = sc.nextInt();
         		switch (choice) {
@@ -37,6 +37,10 @@ public class App
 				case 4:  //Delete student
 					HibernateDAO.deleteStudent();
 					break;
+					
+				case 5:  //authenticate student
+					HibernateDAO.authenticateStudent();
+					break; 
 
 				default:
 					System.out.println("Invalid Choice");
