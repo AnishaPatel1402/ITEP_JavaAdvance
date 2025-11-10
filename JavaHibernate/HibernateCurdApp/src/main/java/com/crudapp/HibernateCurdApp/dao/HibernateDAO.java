@@ -83,7 +83,7 @@ public class HibernateDAO {
 		    	s.setPassword(password);
 		    	
 		    	//now save student
-		    	session.persist(s);
+//		    	session.persist(s);  //here we don't need to call persist because our object is in persist state so it will affect in database as well 
 		    	
 		    	tx.commit();
 		    	
