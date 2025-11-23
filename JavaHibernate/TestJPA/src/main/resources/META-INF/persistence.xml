@@ -9,6 +9,7 @@
 
     <!-- List all your entity classes -->
     <class>com.info.TestJPA.entity.User</class> 
+    <class>com.info.TestJPA.entity.StudentCourse</class>
     
     <properties>
       <!-- JDBC connection properties -->
@@ -22,6 +23,14 @@
       <property name="hibernate.hbm2ddl.auto" value="update"/>
       <property name="hibernate.show_sql" value="true"/>
       <property name="hibernate.format_sql" value="true"/>
+      
+      
+      <!-- enabling second level caching    -->
+      <property name="cache.use_second_level_cache" value="true"/>
+      <property name="hibernate.cache.use_query_cache" value="true"/>
+      <property name="cache.region.factory_class" value="org.hibernate.cache.jcache.internal.JCacheRegionFactory"/>
+      <property name="hibernate.javax.cache.provider" value="org.ehcache.jsr107.EhcacheCachingProvider"/>
+    
     </properties>
     
   </persistence-unit>
