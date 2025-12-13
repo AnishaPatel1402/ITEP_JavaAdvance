@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+        
+       <bean id="emp1" class="com.info.SpringTestDI2.entity.Employee">
+       		<property name="id" value="101"></property>
+       		<property name="name" value="Neha"></property>
+       		
+       		<property name="addressList">
+       			<list>
+       				<value>8, Maheshwer</value>
+       				<value>101B, Indore</value>
+       				<value>10, A, Mandleshwer</value>
+       			</list>
+       		</property>
+       		
+       		<property name="mobileList">
+       			<set>
+       				<value>5353535355</value>
+       				<value>353243553</value>
+       				<value>1234244243</value>
+       			</set>
+       		</property>
+       		
+       		<property name="projectList">
+       			<entry key="java" value="project1"></entry>
+       			<entry key="python" value="project1"></entry>
+       			<entry key="C++" value="project1"></entry>
+       		</property>
+       </bean>
+</beans>

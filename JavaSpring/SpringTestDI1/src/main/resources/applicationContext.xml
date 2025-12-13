@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean id="customer1" class="com.info.SpringTestDI1.entity.Customer">
+	
+	  <!-- constructor injection 
+	  here constructor will assign the values on basis of order that we mentioned in constructor-->
+		<constructor-arg value="101"></constructor-arg>
+		<constructor-arg value="Khushi"></constructor-arg>
+		<constructor-arg value="24"></constructor-arg>
+	</bean>
+	
+	
+	<!-- here index and type are optional but we can specify the type and index -->
+	<bean id="customer2" class="com.info.SpringTestDI1.entity.Customer">
+		<constructor-arg value="102" index="0"></constructor-arg>
+		<constructor-arg value="Anisha" index="1"></constructor-arg>
+		<constructor-arg value="22" index="2"></constructor-arg>
+	</bean>
+	
+	<bean id="customer3" class="com.info.SpringTestDI1.entity.Customer">
+		<constructor-arg value="103" type="int"></constructor-arg>
+		<constructor-arg value="Harshit" type="java.lang.String"></constructor-arg>
+		<constructor-arg value="21"  type="int"></constructor-arg>
+	</bean>
+</beans>
