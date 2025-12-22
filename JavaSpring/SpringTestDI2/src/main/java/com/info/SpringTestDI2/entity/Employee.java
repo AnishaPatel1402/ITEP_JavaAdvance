@@ -47,7 +47,7 @@ public class Employee {
 		System.out.println("Employee Basic Details : "+id+" "+name);
 		System.out.println("Address Details : "+addressList.toString());
 		System.out.println("Phone List : "+mobileList.toString());
-		System.out.println("Projec List : "+projectList.toString());
+		System.out.println("Project List : "+projectList.toString());
 	}
 	
 }
